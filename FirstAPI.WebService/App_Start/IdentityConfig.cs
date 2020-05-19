@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using FirstAPI.WebService.Models;
+using FirstAPI.Entities;
+using FirstAPI.Data;
 
 namespace FirstAPI.WebService
 {

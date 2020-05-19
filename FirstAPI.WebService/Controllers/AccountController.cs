@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using FirstAPI.WebService.Models;
 using FirstAPI.WebService.Providers;
 using FirstAPI.WebService.Results;
+using FirstAPI.Entities;
 
 namespace FirstAPI.WebService.Controllers
 {

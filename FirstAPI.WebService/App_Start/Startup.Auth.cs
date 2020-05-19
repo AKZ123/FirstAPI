@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using FirstAPI.WebService.Providers;
 using FirstAPI.WebService.Models;
+using FirstAPI.Data;
 
 namespace FirstAPI.WebService
 {
