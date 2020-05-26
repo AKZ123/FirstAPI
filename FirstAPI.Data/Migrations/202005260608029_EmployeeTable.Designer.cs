@@ -13,7 +13,7 @@ namespace FirstAPI.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202005182329327_EmployeeTable"; }
+            get { return "202005260608029_EmployeeTable"; }
         }
         
         string IMigrationMetadata.Source

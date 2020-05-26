@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace FirstAPI.WebService.Controllers
 {
+    [Authorize]
     public class EmployeeV1Controller : ApiController
     {
         ////Part: 4
@@ -63,7 +64,7 @@ namespace FirstAPI.WebService.Controllers
 
         //Part: 7.2, 34
         // GET: api/EmployeeV1/5
-        [Route(Name ="GetEmployeeById")]          //Part:33.1
+        [Route("api/EmployeeV1/{id}", Name ="GetEmployeeById")]          //Part:30, 33.1
         //public HttpResponseMessage Get(int id)  //Part: 7
         public IHttpActionResult Get(int id)      //Part: 34
         {
@@ -116,7 +117,7 @@ namespace FirstAPI.WebService.Controllers
         //Part:9
         // PUT: api/EmployeeV1/5
         //public void Put(int id, [FromBody]string value)
-        //public HttpResponseMessage Put(int id, [FromBody]Employee employee) //p:9
+        //public HttpResponseMessage Put([FromUri]int id, [FromBody]Employee employee) //p:9, 12
         public IHttpActionResult Put(int id, [FromBody]Employee employee)      //P:34
         {
             try

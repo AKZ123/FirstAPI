@@ -87,9 +87,9 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="FirstApiDbInitializer.cs" />
-    <Compile Include="Migrations\202005182329327_EmployeeTable.cs" />
-    <Compile Include="Migrations\202005182329327_EmployeeTable.Designer.cs">
-      <DependentUpon>202005182329327_EmployeeTable.cs</DependentUpon>
+    <Compile Include="Migrations\202005260608029_EmployeeTable.cs" />
+    <Compile Include="Migrations\202005260608029_EmployeeTable.Designer.cs">
+      <DependentUpon>202005260608029_EmployeeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,8 +105,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005182329327_EmployeeTable.resx">
-      <DependentUpon>202005182329327_EmployeeTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005260608029_EmployeeTable.resx">
+      <DependentUpon>202005260608029_EmployeeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

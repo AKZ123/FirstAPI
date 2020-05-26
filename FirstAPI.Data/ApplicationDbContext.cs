@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FirstAPI.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>   //DbContext
     {
         public ApplicationDbContext() : base("name=FirstAPIConnection")
         {
