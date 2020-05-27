@@ -57,13 +57,15 @@
                 $.ajax({
                     url: '/token',
                     method: 'POST',
-                    contentType:'application/json',
+                    contentType: 'application/json',
                     data: {
                         username: $('#txtUserName').val(),
                         password: $('#txtPassword').val(),
-                        grant_type:'password'
+                        grant_type: 'password'
                     },
                     success: function (response) {
+
+                        debugger;
                         sessionStorage.setItem('accessToken', response.access_token);
                         window.location.href = "Data.html";
                         //$('#divErrorText').text(JSON.stringify(response));          //for test
