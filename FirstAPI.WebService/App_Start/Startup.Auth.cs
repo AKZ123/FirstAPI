@@ -63,11 +63,12 @@ namespace FirstAPI.WebService
             //    appId: "",
             //    appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            //Part:28.1
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "467432482088-9n4kb8s750du23h4fpskdlolg5ajr6qs.apps.googleusercontent.com",
+                ClientSecret = "K_MwDUBTUlpdVCfCSUYHhjxy"
+            });
         }
     }
 }

@@ -45,7 +45,7 @@ namespace FirstAPI.WebService.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName, user.Email);
+            AuthenticationProperties properties = CreateProperties(user.UserName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -76,7 +76,7 @@ namespace FirstAPI.WebService.Providers
         {
             if (context.ClientId == _publicClientId)
             {
-                Uri expectedRootUri = new Uri(context.Request.Uri, "/");
+                Uri expectedRootUri = new Uri(context.Request.Uri, "/Login.html");   //Part:28.4
 
                 if (expectedRootUri.AbsoluteUri == context.RedirectUri)
                 {
@@ -87,12 +87,11 @@ namespace FirstAPI.WebService.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName, string Email)
+        public static AuthenticationProperties CreateProperties(string userName)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName },
-                { "Email", Email }
+                { "userName", userName }
             };
             return new AuthenticationProperties(data);
         }
