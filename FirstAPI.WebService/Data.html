@@ -10,6 +10,10 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="well">
             <input type="button" id="btnLoadEmployees" class="btn btn-success" value="Load Employees" />
+            <!--Part:27.2-->
+            <span id="spanUsername" class="text-muted"></span>
+            <!-- Part:26.1 -->
+            <input type="button" id="btnLogoff" class="btn btn-success pull-right" value="Log Off" />
         </div>
         <div class="well hidden" id="divData">
             <table class="table table-bordered" id="tblData">
@@ -58,10 +62,21 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            if (sessionStorage.getItem('accessToken') == null) {
+            //Part:27.3
+            $('#spanUsername').text('Hello ' + localStorage.getItem('userName'));
+
+            //if (sessionStorage.getItem('accessToken') == null) {   
+            if (localStorage.getItem('accessToken') == null) {   //Part:26.3.1
                 window.location.href = "Login.html";
             }
             
+            //P:26.2
+            $('#btnLogoff').click(function () {
+                //sessionStorage.removeItem('accessToken');
+                localStorage.removeItem('accessToken');
+                window.location.href = "Login.html";
+            })
+
             $('#errorModal').on('hidden.bs.modal', function () {
                 window.location.href = "Login.html";
             });
@@ -76,7 +91,8 @@
                     url: '/api/EmployeeV1',
                     method: 'GET',
                     headers: {
-                        'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')   //must set a ( )space after Bearer( )
+                        //'Authorization': 'Bearer ' + sessionStorage.getItem('accessToken')   //must set a ( )space after Bearer( )
+                        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')       //Part:26.3.
                     },
                     success: function (data) {
                         debugger;

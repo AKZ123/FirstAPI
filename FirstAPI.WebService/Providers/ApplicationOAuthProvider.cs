@@ -45,7 +45,7 @@ namespace FirstAPI.WebService.Providers
             ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
                 CookieAuthenticationDefaults.AuthenticationType);
 
-            AuthenticationProperties properties = CreateProperties(user.UserName);
+            AuthenticationProperties properties = CreateProperties(user.UserName, user.Email);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
             context.Request.Context.Authentication.SignIn(cookiesIdentity);
@@ -87,11 +87,12 @@ namespace FirstAPI.WebService.Providers
             return Task.FromResult<object>(null);
         }
 
-        public static AuthenticationProperties CreateProperties(string userName)
+        public static AuthenticationProperties CreateProperties(string userName, string Email)
         {
             IDictionary<string, string> data = new Dictionary<string, string>
             {
-                { "userName", userName }
+                { "userName", userName },
+                { "Email", Email }
             };
             return new AuthenticationProperties(data);
         }

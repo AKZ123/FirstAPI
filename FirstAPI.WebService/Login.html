@@ -65,9 +65,12 @@
                     },
                     success: function (response) {
 
-                        debugger;
-                        sessionStorage.setItem('accessToken', response.access_token);
+                        //debugger;
+                        //sessionStorage.setItem('accessToken', response.access_token);      //after closing Browser it's gone.
+                        localStorage.setItem('accessToken', response.access_token);          //Part:26.3.1 without Logoff it's not gone.
+                        localStorage.setItem("userName", response.userName);              //Part: 27.1
                         window.location.href = "Data.html";
+
                         //$('#divErrorText').text(JSON.stringify(response));          //for test
                         //$('#divError').show('fade');
                     },
