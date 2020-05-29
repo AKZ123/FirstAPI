@@ -6,11 +6,13 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using FirstAPI.WebService.Providers;
 using FirstAPI.WebService.Models;
 using FirstAPI.Data;
+using FirstAPI.WebService.Facebook;
 
 namespace FirstAPI.WebService
 {
@@ -62,6 +64,17 @@ namespace FirstAPI.WebService
             //app.UseFacebookAuthentication(
             //    appId: "",
             //    appSecret: "");
+
+            //Part:29.2
+            var facebookOptions = new FacebookAuthenticationOptions()
+            {
+                AppId= "2686320351694726",
+                AppSecret = "1b8a85e4877b5e43c26e8b679f44759a",
+                BackchannelHttpHandler = new FacebookBackChannelHandler(),
+                UserInformationEndpoint = "https://graph.facebook.com/v2.4/me?fields=id,email"
+            };
+            facebookOptions.Scope.Add("email");
+            app.UseFacebookAuthentication(facebookOptions);
 
             //Part:28.1
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
