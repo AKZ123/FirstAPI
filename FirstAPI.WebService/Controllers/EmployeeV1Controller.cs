@@ -7,12 +7,16 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace FirstAPI.WebService.Controllers
 {
-    [Authorize]
+    //[EnableCorsAttribute("*", "*", "*")]  //Part:15.2
+    //[Authorize]
     public class EmployeeV1Controller : ApiController
     {
+        //[DisableCors]                   //Part: 15.3
+
         ////Part: 4
         //// GET: api/EmployeeV1
         //[HttpGet]    //P:10
