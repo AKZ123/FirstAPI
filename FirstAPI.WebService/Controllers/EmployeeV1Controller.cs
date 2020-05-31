@@ -31,6 +31,8 @@ namespace FirstAPI.WebService.Controllers
         //    }
         //}
 
+
+        //[Route("api/v1/students")]    //Part:35.2
         //Part:11
         //public HttpResponseMessage Get(string gender = "All")
         public IHttpActionResult Get(string gender = "All")
@@ -70,6 +72,7 @@ namespace FirstAPI.WebService.Controllers
 
         //Part: 7.2, 34
         // GET: api/EmployeeV1/5
+        //[Route("api/v1/students/{id}")]       //PArt: 35.2
         [Route("api/EmployeeV1/{id}", Name ="GetEmployeeById")]          //Part:30, 33.1
         //public HttpResponseMessage Get(int id)  //Part: 7
         public IHttpActionResult Get(int id)      //Part: 34
