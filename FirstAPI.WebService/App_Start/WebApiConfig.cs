@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using WebApiContrib.Formatting.Jsonp;
 using System.Web.Http.Cors;
+using FirstAPI.WebService.Utilities;
 
 namespace FirstAPI.WebService
 {
@@ -38,6 +39,9 @@ namespace FirstAPI.WebService
             EnableCorsAttribute cors = new EnableCorsAttribute("*","*","*");
             config.EnableCors(cors);
             //config.EnableCors();
+
+            //Part: 17.2
+            //config.Filters.Add(new RequireHttpsAttribute());
 
         }
     }

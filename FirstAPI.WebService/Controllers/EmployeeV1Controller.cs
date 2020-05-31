@@ -1,5 +1,6 @@
 ﻿using FirstAPI.Data;
 using FirstAPI.Entities;
+using FirstAPI.WebService.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Web.Http.Cors;
 namespace FirstAPI.WebService.Controllers
 {
     //[EnableCorsAttribute("*", "*", "*")]  //Part:15.2
+    //[RequireHttpsAttribute]     //Part: 17.3
     //[Authorize]
     public class EmployeeV1Controller : ApiController
     {
