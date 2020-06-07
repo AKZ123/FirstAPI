@@ -10,9 +10,27 @@ using System.Web.Http.Cors;
 using FirstAPI.WebService.Utilities;
 using System.Web.Http.Dispatcher;
 using FirstAPI.WebService.Custom;
+using System.Net.Http.Headers;
+using System.Net.Http.Formatting;
 
 namespace FirstAPI.WebService
 {
+    ////Part: 6.3.2.1
+      //                               JsonpMediaTypeFormatter
+    public class CustomJsonFormatter : JsonMediaTypeFormatter
+    {
+        public CustomJsonFormatter()
+        {
+            this.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+        }
+
+        public override void SetDefaultContentHeaders(Type type, HttpContentHeaders headers, MediaTypeHeaderValue mediaType)
+        {
+            base.SetDefaultContentHeaders(type, headers, mediaType);
+            headers.ContentType = new MediaTypeHeaderValue("application/json");
+        }
+    }//
+
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
@@ -70,6 +88,20 @@ namespace FirstAPI.WebService
             //Part: 17.2
             //config.Filters.Add(new RequireHttpsAttribute());
 
+
+            ////Part:5  send CamelCase  instrat of pascalCase
+            //config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            ////Part:6
+            //config.Formatters.Remove(config.Formatters.XmlFormatter);   //p: 6.1  return only Json
+            //config.Formatters.Remove(config.Formatters.JsonFormatter);   //p: 6.2  return only Xml
+
+            ////Accept: text/html  header Browser always send to Api and get XML
+            ////return JSON insted of XML only for Accept: text/html  //p:6.3
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html")); //p:6.3.1
+
+            //config.Formatters.Add(new CustomJsonFormatter());  //p:6.3.2.2
         }
     }
 }
