@@ -8,6 +8,7 @@ using System.Web;
 
 namespace FirstAPI.WebService.Facebook
 {
+    //override for catch URL
     //Part:29.1
     public class FacebookBackChannelHandler : HttpClientHandler
     {

@@ -15,8 +15,9 @@ using System.Net.Http.Formatting;
 
 namespace FirstAPI.WebService
 {
+    //override for send json data
     ////Part: 6.3.2.1
-      //                               JsonpMediaTypeFormatter
+    //                               JsonpMediaTypeFormatter
     public class CustomJsonFormatter : JsonMediaTypeFormatter
     {
         public CustomJsonFormatter()

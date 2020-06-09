@@ -9,6 +9,7 @@ using System.Web.Http.Filters;
 
 namespace FirstAPI.WebService.Utilities
 {
+    //override for always send https
     //Part: 17.1    //Use HTTPS instead of HTTP
     public class RequireHttpsAttribute : AuthorizationFilterAttribute
     {
